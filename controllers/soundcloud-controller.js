@@ -6,8 +6,8 @@ module.exports = (app) => {
     app.get('/getSoundcloudIframes', (req, res) => {
         async.parallel({
             data: (callback) => {
-                SCClient.getAllTracks().then((jam) => {
-                    SCClient.convertTracksToIframes(jam).then((result) => {
+                SCClient.getAllTracks().then((allTracks) => {
+                    SCClient.convertTracksToIframes(allTracks).then((result) => {
                         callback(null, result);
                     });
                 });
