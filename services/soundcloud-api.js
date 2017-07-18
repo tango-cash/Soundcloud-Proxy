@@ -1,7 +1,7 @@
 const async = require('async');
 const request = require('request');
 
-const oembedService = 'https://soundcloud.com/oembed.json?auto_play=false&maxwidth=550&maxheight=250&url='
+const oembedService = 'https://soundcloud.com/oembed.json?auto_play=false&url='
 const client_id = '2t9loNQH90kzJcsFCODdigxfp325aq4z'
 const userId = '309831355'
 const soundcloudAPI = 'http://api.soundcloud.com'
@@ -13,9 +13,15 @@ let httpGet = (soundcloudTracks, callback) => {
     };
     request(options,
         (err, res, body) => {
-            callback(err, body.html);
+            callback(err, replaceDefaultSizing(body).html);
         }
     );
+}
+
+let replaceDefaultSizing = (body) => {
+    body.html = body.html.replace(/width=".*?"/, 'width="70%"');
+
+    return body;
 }
 
 let getAllTracks = () => {
