@@ -14,3 +14,13 @@ $ npm start
 
 What you need to run this app:
 * `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+```
+## Setup
+Replace the following with a **default client_id** and the **userId** of the stream you want to pull
+
+*services/soundcloud-api*
+```javascript
+const client_id = ''
+const userId = ''
+```
+
