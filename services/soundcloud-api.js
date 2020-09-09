@@ -2,8 +2,8 @@ const async = require('async');
 const request = require('request');
 
 const oembedService = 'https://soundcloud.com/oembed.json?auto_play=false&maxheight=250&url='
-const client_id = '2t9loNQH90kzJcsFCODdigxfp325aq4z'
-const userId = '309831355'
+const client_id = process.env.CLIENT_ID
+const userId = process.env.USER_ID
 const soundcloudAPI = 'http://api.soundcloud.com'
 
 let httpGet = (soundcloudTracks, callback) => {
