@@ -22,8 +22,15 @@ What you need to run this app:
 Replace the following with a **default client_id** and the **userId** of the stream you want to pull
 
 *services/soundcloud-api*
+Set vars:
+client_id
+userId
+
+https://devcenter.heroku.com/articles/config-vars
+
 ```javascript
 const client_id = ''
 const userId = ''
 ```
 
+Go to: http://localhost:8080/getSoundcloudIframes

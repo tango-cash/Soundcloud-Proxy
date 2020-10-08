@@ -4,7 +4,7 @@ const request = require('request');
 const oembedService = 'https://soundcloud.com/oembed.json?auto_play=false&maxheight=250&url='
 const client_id = process.env.CLIENT_ID
 const userId = process.env.USER_ID
-const soundcloudAPI = 'http://api.soundcloud.com'
+const soundcloudAPI = 'http://api-v2.soundcloud.com'
 
 let httpGet = (soundcloudTracks, callback) => {
     const options = {
@@ -37,7 +37,7 @@ let getAllTracks = () => {
 
 let convertTracksToIframes = (soundcloudTracks) => {
     return new Promise((fulfill, reject) => {
-        async.map(soundcloudTracks, httpGet, (err, res) => {
+        async.map(soundcloudTracks.collection, httpGet, (err, res) => {
             if (err) return reject(err);
             fulfill(res);
         });
